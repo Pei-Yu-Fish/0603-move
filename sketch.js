@@ -49,6 +49,8 @@ async function setup() {
 
   stroke(255);
   strokeWeight(5);
+     
+
   
 }
 
@@ -60,6 +62,8 @@ function draw() {
   translate(cam.width, 0);
   scale(-1, 1);
   image(cam, 0, 0);
+  t+=0.5;
+  if(t>1){t=0;} //重設T以循環
 }
 
 function drawSkeleton() {
@@ -74,10 +78,6 @@ function drawSkeleton() {
     if(partA.score > 0.1 && partB.score > 0.1){  //鏡頭抓取眼睛
       
       let eyeX = lerp(partA.x , partB.x,t);  // 計算兩眼之間的距離和移動速度
-  
-  
-      t+=0.5;
-      if(t>1)t=0; //重設T以循環
       
       push() 
       imageMode(CENTER);
@@ -87,21 +87,17 @@ function drawSkeleton() {
 
 
     //wrist
-    partA = pose.keypoints[9];
-    partB = pose.keypoints[10];
-    if(partA.score > 0.1){
+    let partC = pose.keypoints[9];
+    let partD = pose.keypoints[10];
+    if(partC.score > 0.1 && partD.score > 0.1){
+      let wristX = lerp(partC.x , partD.x,t);
       push()
       imageMode(CENTER);
-      image(inup,partA.x,partA.y,inup.width,inup.height)
+      image(inup,wristX,partC.y,inup.width,inup.height)
       pop()
     }
 
-    if(partB.score > 0.1){
-      push()
-      imageMode(CENTER);
-      image(inup,partB.x,partB.y,inup.width,inup.height)
-      pop()
-   }
+
 
    //text
    partA = pose.keypoints[2];
