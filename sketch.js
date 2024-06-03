@@ -62,7 +62,7 @@ function draw() {
   translate(cam.width, 0);
   scale(-1, 1);
   image(cam, 0, 0);
-  t+=0.5;
+  t+=0.1;
   if(t>1){t=0;} //重設T以循環
 }
 
