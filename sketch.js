@@ -10,8 +10,10 @@ let poses = [];
 let t=0 //控動移動速度
 
 var inup
+var inf
 function preload(){
   inup = loadImage("upload_9eba0692c05fbceb38024e09280b0be4.gif");
+  inf = loadImage("animated-arrow-image-0032.gif");
 }
 
 
@@ -93,7 +95,7 @@ function drawSkeleton() {
       let wristX = lerp(partC.x , partD.x,t);
       push()
       imageMode(CENTER);
-      image(inup,wristX,partC.y,inup.width,inup.height)
+      image(inf,wristX,partC.y,inup.width,inup.height)
       pop()
     }
 
