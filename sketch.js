@@ -77,9 +77,9 @@ function drawSkeleton() {
       let eyeY = (partA.y + partB.y) / 2;  // 眼睛中點的 y 坐標
       
       moveX += speed;
-      if (moveX > (partB.x - partA.x) / 2 || moveX < -(partB.x - partA.x) / 2) {
-        speed *= -1;  // 反彈
-      }
+      // if (moveX > (partB.x - partA.x) / 2 || moveX < -(partB.x - partA.x) / 2) {
+      //   speed *= -1;  // 反彈
+      // }
       
       
       push() //
