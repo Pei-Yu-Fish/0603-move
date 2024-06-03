@@ -95,7 +95,7 @@ function drawSkeleton() {
       let wristX = lerp(partC.x , partD.x,t);
       push()
       imageMode(CENTER);
-      image(inf,wristX,partC.y,inup.width,inup.height)
+      image(inf,wristX,partC.y,inf.width,inf.height)
       pop()
     }
 
